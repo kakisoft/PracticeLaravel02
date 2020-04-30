@@ -1,12 +1,14 @@
 # PracticeLaravel02
 Laravel で色々遊ぶ用のリポジトリ
 
+
+## 起動・終了
 ```
 docker-compose up -d
 docker-compose down
 ```
 
-
+## コンテナに入る
 ```
 docker-compose exec app bash
 ```
@@ -19,110 +21,62 @@ docker-compose down --rmi all --volumes
 ```
 
 _______________________________________________________________________________
+_______________________________________________________________________________
+_______________________________________________________________________________
+# 初回起動時
+
+## composer install
+```
+composer install
+```
+
+## .env を用意
+.env.example をコピー。  
+必要があれば編集。
+
+
+## migrate
+```
+php artisan migrate
+```
+
+
+## キーを用意
+コピーしない場合は、コマンドで作成。
+```
+php artisan key:generate
+```
+
+
+_______________________________________________________________________________
+_______________________________________________________________________________
+_______________________________________________________________________________
+# プロジェクト作ったり、モデルを追加したり
+
 ## Create Project
 ```
 composer create-project --prefer-dist  "laravel/laravel=5.5" my-laravel-app
 ```
 
-
+## Rollback
+```
 php artisan migrate:rollback
+```
 
 
-
-
-_______________________________________________________________________________
-## tmp
+## Model追加
 ```
 php artisan make:model Models/Post -m
-（編集）
-php artisan migrate
 php artisan make:model Models/Comment -m
 （編集）
 php artisan migrate
+```
 
 
----------------------------------------------
+## RequestModel追加
+```
 php artisan make:request PostRequest
-（編集）
-php artisan migrate
-
-```
-
-```php
-<?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreatePostsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->text('body');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('posts');
-    }
-}
 ```
 
 
-```php
-<?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateCommentsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->increments('id');
-            // $table->integer('post_id');
-            $table->unsignedInteger('post_id');
-            $table->string('body');
-            $table->timestamps();
-            $table
-              ->foreign('post_id')
-              ->references('id')
-              ->on('posts')
-              ->onDelete('cascade');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('comments');
-    }
-}
-```
