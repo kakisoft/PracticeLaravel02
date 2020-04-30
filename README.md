@@ -79,4 +79,10 @@ php artisan make:request PostRequest
 ```
 
 
+## Controller 追加
+```
+php artisan make:controller PostsController
+php artisan make:controller CommentsController
+```
+
 
