@@ -30,6 +30,7 @@ class PostRequest extends FormRequest
         ];
     }
 
+    // Validation のエラーメッセージのカスタマイズ
     public function messages() {
       return [
         'title.required' => 'please enter title!!!'
