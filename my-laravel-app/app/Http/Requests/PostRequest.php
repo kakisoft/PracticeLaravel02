@@ -33,7 +33,8 @@ class PostRequest extends FormRequest
     // Validation のエラーメッセージのカスタマイズ
     public function messages() {
       return [
-        'title.required' => 'please enter title!!!'
+        'title.required' => 'please enter title!!!',
+        'body.required'  => 'please enter body!!!'
       ];
     }
 }
