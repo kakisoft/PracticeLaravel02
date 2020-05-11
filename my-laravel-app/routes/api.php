@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// Route::get('call/me', 'API\CallMeAPIController@callMeGet');
+
+
+Route::group(['namespace' => 'API'], function () {
+    Route::get('call/me', 'CallMeAPIController@callMeGet');
+    Route::post('call/me', 'CallMeAPIController@callMePost');
+    Route::get('challenge_usersGet', 'CallMeAPIController@challenge_usersGet');
+    Route::post('challenge_usersGet', 'CallMeAPIController@challenge_usersPost');
+});

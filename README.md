@@ -83,6 +83,8 @@ php artisan make:request PostRequest
 ```
 php artisan make:controller PostsController
 php artisan make:controller CommentsController
+
+php artisan make:controller API/CallMeAPIController
 ```
 
 
