@@ -29,6 +29,10 @@ class User extends Authenticatable
 }
 
 /*
+Laravel デフォルトの Model を使用。
+これだけ namespace を App のままにしている。
+
+
 
 ## users
 ```sql
