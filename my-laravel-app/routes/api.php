@@ -17,10 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+//// まとめずに書くなら、こんな感じ
 // Route::get('call/me', 'API\CallMeAPIController@callMeGet');
 
 
+// 先頭「api」をまとめて書く場合、こんな感じ
 Route::group(['namespace' => 'API'], function () {
     Route::get('call/me', 'CallMeAPIController@callMeGet');
     Route::post('call/me', 'CallMeAPIController@callMePost');
