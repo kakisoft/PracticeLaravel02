@@ -48,6 +48,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if( $request->is('api/*') ){
+            if($exception->getStatusCode() == 404) {
+                echo '{"message":"No No. Not this way"}';
+                return;
+            }
+        }
+
         return parent::render($request, $exception);
     }
 }

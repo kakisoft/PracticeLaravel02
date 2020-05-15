@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;  // Modelの名前空間を指定
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Log;  // Logの先頭「\」を省略できる
 
 class PostsController extends Controller
 {
@@ -17,6 +18,13 @@ class PostsController extends Controller
       $posts = Post::latest()->get();
 
 // dd($posts->toArray()); // dump die
+
+
+\Log::info("ログ出力 : local.INFO");
+Log::debug("ログ出力 : local.DEBUG");
+// storage\logs\laravel-2020-05-14.log
+
+
 
       // return view('posts.index');
       // return view('posts.index', ['posts' => $posts]);
