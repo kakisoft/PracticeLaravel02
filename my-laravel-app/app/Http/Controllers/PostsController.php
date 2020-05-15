@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;  // Modelの名前空間を指定
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Log;  // Logの先頭「\」を省略できる
+use App\Services\HelperService;
 
 class PostsController extends Controller
 {
@@ -24,6 +25,9 @@ class PostsController extends Controller
 Log::debug("ログ出力 : local.DEBUG");
 // storage\logs\laravel-2020-05-14.log
 
+// ユーティリティ
+$file_hash = HelperService::getFileHash("a");
+echo $file_hash;
 
 
       // return view('posts.index');
