@@ -7,6 +7,8 @@
   <a href="{{ url('/') }}" class="header-menu">Back</a>
   New Post
 </h1>
+
+<!-- ↓<form method="post" action="http://localhost:8000/posts">  こんな感じの html要素を生成 -->
 <form method="post" action="{{ url('/posts') }}">
   {{ csrf_field() }}
   <p>
