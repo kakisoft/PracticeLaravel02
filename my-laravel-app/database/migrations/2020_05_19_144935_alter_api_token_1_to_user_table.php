@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddApiToken1ToUserTable extends Migration
+class AlterApiToken1ToUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class AddApiToken1ToUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
-            $table->string('api_token_1');
-            $table->dateTime('api_token_1_expiration_date');
+            $table->string('api_token_1')->nullable()->default(null)->change();
+            $table->dateTime('api_token_1_expiration_date')->nullable()->default(null)->change();
         });
     }
 
@@ -28,10 +27,8 @@ class AddApiToken1ToUserTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
-            $table->dropColumn('api_token_1');
-            $table->dropColumn('api_token_1_expiration_date');
+            $table->string('api_token_1')->nullable(false)->change();
+            $table->dateTime('api_token_1_expiration_date')->nullable(false)->change();
         });
     }
 }
-
