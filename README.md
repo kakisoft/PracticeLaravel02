@@ -72,6 +72,14 @@ php artisan make:model Models/Comment -m
 php artisan migrate
 ```
 
+## Model 編集
+テーブル名を指定（しなくてもできるけど、やっといた方が便利）
+```
+php artisan make:migration add_api_token_1_to_user_table --table=users
+（編集）
+php artisan migrate
+```
+
 
 ## RequestModel追加
 ```
