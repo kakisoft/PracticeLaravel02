@@ -96,3 +96,16 @@ php artisan make:controller API/CallMeAPIController
 ```
 
 
+## シーダの実行
+```
+composer dump-autoload
+
+
+php artisan db:seed
+php artisan db:seed --class=UsersTableSeeder
+
+
+// リフレッシュ
+php artisan migrate:refresh --seed
+```
+
