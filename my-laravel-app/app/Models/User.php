@@ -39,6 +39,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @return mixed|null
+     */
+    public function getPreference(string $key): string
+    {
+
+
+        return "yes";
+    }
+
 }
 
 /*

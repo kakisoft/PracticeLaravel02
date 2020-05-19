@@ -4,28 +4,20 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\CallMeAPI01;
 
 class CallMeAPIController extends Controller
 {
     public function callMeGet() {
-        $return_contents = [];
-        $return_contents['message'] = "Almost! It's not GET. Keep trying.";
-
-        return $return_contents;
+        return CallMeAPI01::callMeGet();
     }
 
     public function callMePost() {
-        $return_contents = [];
-        $return_contents['message'] = "Great! Please register as /challenge_users";
-
-        return $return_contents;
+        return CallMeAPI01::callMePost();
     }
 
     public function challenge_usersGet() {
-        $return_contents = [];
-        $return_contents['message'] = "GET? No. No.";
-
-        return $return_contents;
+        return CallMeAPI01::challenge_usersGet();
     }
 
     public function challenge_usersPost(Request $request) {
