@@ -6,6 +6,8 @@ use App\User;
 
 class CallMeAPI01
 {
+    const MESSAGE___404_ERROR = "No No. Not this way";
+
     const MESSAGE___CALL_ME_GET         = "Almost! It's not GET. Keep trying.";
     const MESSAGE___CALL_ME_POST        = "Great! Please register as /challenge_users";
     const MESSAGE___CHALLENGE_USERS_GET = "GET? No. No.";
@@ -21,6 +23,9 @@ class CallMeAPI01
      */
     public static function callMeGet(): string
     {
+        $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___NAME_BLANK;
+        return $return_contents;
+
         $return_contents = [];
         $return_contents['message'] = self::MESSAGE___CALL_ME_GET;
         $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
@@ -58,7 +63,38 @@ class CallMeAPI01
     public static function challenge_usersPost($name, $email): string
     {
         $return_contents = [];
-        $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_GET;
+
+        //-----( name is blank )-----
+        if( is_null($name) ){
+            $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___NAME_BLANK;
+            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+        }
+
+        //-----( name already used )-----
+
+
+
+        //-----( email is blank )-----
+        if( is_null($email) ){
+            $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___EMAIL_BLANK;
+            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+        }
+
+        //-----( email format check )-----
+        if( filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+            $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___EMAIL_INVALID;
+            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+        }
+
+
+        //-----( email already used )-----
+
+
+        // {"message":"Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/M-ED_X9MVEQ  from your web browser."}
+
+
+
+        $return_contents['message'] = "OK!";
         $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
 
         return $encoded_return_contents;
