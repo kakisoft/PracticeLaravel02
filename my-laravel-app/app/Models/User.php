@@ -5,6 +5,19 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @property int    $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $remember_token
+ * @property datetime $created_at
+ * @property datetime $updated_at
+ *
+ * @method static self create(array $params)
+ * @method static int count()
+ * @method static Collection where(string $key, $val)
+ */
 class User extends Authenticatable
 {
     use Notifiable;
