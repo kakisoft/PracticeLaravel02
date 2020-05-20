@@ -15,9 +15,9 @@ class CreateQuestion01RegistrationInformationsTable extends Migration
     {
         Schema::create('question01_registration_informations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('email')->unique();
-            $table->string('for_regist_token')->nullable()->default(null);
+            $table->string('for_regist_token', 10)->nullable()->default(null);
             $table->string('comment')->default('');
             $table->boolean('is_cleared')->default(false);;
             $table->timestamps();
