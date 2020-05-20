@@ -25,6 +25,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['namespace' => 'API'], function () {
     Route::get('call/me', 'CallMeAPIController@callMeGet');
     Route::post('call/me', 'CallMeAPIController@callMePost');
-    Route::get('challenge_usersGet', 'CallMeAPIController@challenge_usersGet');
-    Route::post('challenge_usersGet', 'CallMeAPIController@challenge_usersPost');
+    Route::get('challenge_users', 'CallMeAPIController@challenge_usersGet');
+    Route::post('challenge_users', 'CallMeAPIController@challenge_usersPost');
 });
