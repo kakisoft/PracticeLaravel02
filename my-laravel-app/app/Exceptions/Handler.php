@@ -56,6 +56,13 @@ class Handler extends ExceptionHandler
                 echo "{\"message\":\"{$message}\"}";
                 return;
             }
+
+            if($exception->getStatusCode() == 405) {
+                $message = Question01RegistrationInformation::MESSAGE___405_ERROR;
+                echo "{\"message\":\"{$message}\"}";
+                return;
+            }
+
         }
 
         return parent::render($request, $exception);
