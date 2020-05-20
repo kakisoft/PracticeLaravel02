@@ -18,7 +18,6 @@ class UsersTableSeeder extends Seeder
                 'name' => 'kakisoft',
                 'email' => 'foobar@gmail.com',
                 'password' => bcrypt('secret'),
-                'api_token_1' => str_random(10).'@gmail.com',
             ]
         ]);
 
