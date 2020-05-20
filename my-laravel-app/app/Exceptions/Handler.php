@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use App\Services\CallMeAPI01;
+use App\Models\Question01RegistrationInformation;
 
 class Handler extends ExceptionHandler
 {
@@ -51,7 +52,7 @@ class Handler extends ExceptionHandler
     {
         if( $request->is('api/*') ){
             if($exception->getStatusCode() == 404) {
-                $message = CallMeAPI01::MESSAGE___404_ERROR;
+                $message = Question01RegistrationInformation::MESSAGE___404_ERROR;
                 echo "{\"message\":\"{$message}\"}";
                 return;
             }

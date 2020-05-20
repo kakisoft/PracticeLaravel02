@@ -4,26 +4,27 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\CallMeAPI01;
+// use App\Services\CallMeAPI01;
+use App\Models\Question01RegistrationInformation;
 
 class CallMeAPIController extends Controller
 {
     public function callMeGet() {
-        return CallMeAPI01::callMeGet();
+        return Question01RegistrationInformation::callMeGet();
     }
 
     public function callMePost() {
-        return CallMeAPI01::callMePost();
+        return Question01RegistrationInformation::callMePost();
     }
 
     public function challenge_usersGet() {
-        return CallMeAPI01::challenge_usersGet();
+        return Question01RegistrationInformation::challenge_usersGet();
     }
 
     public function challenge_usersPost(Request $request) {
-        $name = $request->input('name');
+        $name  = $request->input('name');
         $email = $request->input('email');
-        return CallMeAPI01::challenge_usersPost($name, $email);
+        return Question01RegistrationInformation::challenge_usersPost($name, $email);
     }
 }
 
@@ -53,7 +54,7 @@ curl -s -X POST -d "name=B810O63g&email=B810O63g@gmail.com" http://localhost:800
 {"message":"Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/rFkUwKhfSj0  from your web browser."}
 
 
-
+{"message": "Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/2wZF4BoFTOU  from your web browser."}
 
 //=========================== error ==================================
 
@@ -65,5 +66,9 @@ $ curl -s -X POST -d "name=B810O63g&email=kakisttab@gmail.com" https://challenge
 
 
 {"message":"No No. Not this way"}
+
+
+"Method Not Allowed"
+
 
 */
