@@ -25,6 +25,12 @@ curl -s -X POST -d "name=B810O63g&email=B810O63g@gmail.com" http://localhost:800
 
 {"message": "Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/2wZF4BoFTOU  from your web browser."}
 
+
+
+curl -s -X POST -d "name=kakisoft" http://localhost:8000/api/challenge_users
+curl -s -X POST -d "name=unknown&email=foobar@gmail.com" http://localhost:8000/api/challenge_users
+
+
 //=========================== error ==================================
 
 $ curl -s -X POST -d "name=B810O63g&email=kakisttsssab" https://challenge-your-limits.herokuapp.com/challenge_users

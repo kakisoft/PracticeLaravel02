@@ -88,14 +88,18 @@ class Question01RegistrationInformation extends Model
         $return_contents = [];
 
         //-----( name is blank )-----
-        if( is_null($name) ){
+        if( empty($name) ){
             $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___NAME_BLANK;
             return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
         }
 
         //-----( name already used )-----
+        $question01_registration_information_from_name = self::where('name', '=', $name)->first();
+        if( empty($question01_registration_information_from_name) == false){
+            $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___NAME_ALREADY_USED;
+            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
 
-
+        }
 
         //-----( email is blank )-----
         if( is_null($email) ){
@@ -111,6 +115,12 @@ class Question01RegistrationInformation extends Model
 
 
         //-----( email already used )-----
+        $question01_registration_information_from_email = self::where('email', '=', $email)->first();
+        if( empty($question01_registration_information_from_email) == false){
+            $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___EMAIL_ALREADY_USED;
+            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+
+        }
 
 
         // {"message":"Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/M-ED_X9MVEQ  from your web browser."}
