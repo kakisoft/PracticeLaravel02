@@ -72,7 +72,7 @@ class Question01RegistrationInformation extends Model
     /**
      *
      */
-    public static function challenge_usersPost(string $name, string $email): string
+    public static function challenge_usersPost(?string $name, ?string $email)
     {
         $return_contents = [];
 
