@@ -18,8 +18,8 @@ class CreateQuestion01RegistrationInformationsTable extends Migration
             $table->string('name')->unique();
             $table->string('email')->unique();
             $table->string('for_regist_token')->nullable()->default(null);
-            $table->string('comment');
-            $table->boolean('is_cleared');
+            $table->string('comment')->default('');
+            $table->boolean('is_cleared')->default(false);;
             $table->timestamps();
         });
     }
