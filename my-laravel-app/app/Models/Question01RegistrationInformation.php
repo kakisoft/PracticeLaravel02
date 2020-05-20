@@ -28,9 +28,9 @@ class Question01RegistrationInformation extends Model
     const MESSAGE___CHALLENGE_USERS_GET = "GET? No. No.";
 
     const MESSAGE___CHALLENGE_USERS_POST___NAME_BLANK         = "Validation Error, [:name, \"can't be blank\"]";
-    const MESSAGE___CHALLENGE_USERS_POST___NAME_ALREADY_USED  = "name already used";
+    const MESSAGE___CHALLENGE_USERS_POST___NAME_ALREADY_USED  = "name already taken";
     const MESSAGE___CHALLENGE_USERS_POST___EMAIL_BLANK        = "Validation Error, [:email, \"can't be blank\"]";
-    const MESSAGE___CHALLENGE_USERS_POST___EMAIL_ALREADY_USED = "email already used";
+    const MESSAGE___CHALLENGE_USERS_POST___EMAIL_ALREADY_USED = "email already taken";
     const MESSAGE___CHALLENGE_USERS_POST___EMAIL_INVALID      = "Validation Error, [:email, \"is invalid\"]";
 
     /**
