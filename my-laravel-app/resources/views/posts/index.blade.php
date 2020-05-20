@@ -54,7 +54,7 @@
     </form>
   </li>
   @empty
-  <!-- forelse を使うと、empty（からだった場合の挙動）を指定できる -->
+  <!-- forelse を使うと、empty（空だった場合の挙動）を指定できる -->
   <li>No posts yet</li>
   @endforelse
 </ul>
