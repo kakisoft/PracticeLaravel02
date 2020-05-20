@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 // use App\Services\CallMeAPI01;
 use App\Models\Question01RegistrationInformation;
 
-class CallMeAPIController extends Controller
+class Question01Controller extends Controller
 {
     public function callMeGet() {
         return Question01RegistrationInformation::callMeGet();
