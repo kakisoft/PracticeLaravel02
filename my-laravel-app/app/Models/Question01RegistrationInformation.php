@@ -21,6 +21,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Question01RegistrationInformation extends Model
 {
+    //------------------------------------------
+    //          Parameter Definition
+    //------------------------------------------
+    const IS_CLEARED___TRUE  = 1;
+    const IS_CLEARED___FALSE = 0;
+
+
+    //------------------------------------------
+    //            Message Definition
+    //------------------------------------------
     const MESSAGE___404_ERROR = "No No. Not this way";
     const MESSAGE___405_ERROR = "Sorry. This method is not allowed.";
 

@@ -98,13 +98,20 @@ php artisan make:controller API/Question01Controller
 ```
 
 
-## シーダの実行
+## シーダ
 ```
+// 作成
+php artisan make:seeder UsersTableSeeder
+php artisan make:seeder Question01RegistrationInformationTableSeeder
+
+
+// 実行
 composer dump-autoload
 
 
 php artisan db:seed
 php artisan db:seed --class=UsersTableSeeder
+php artisan db:seed --class=Question01RegistrationInformationTableSeeder
 
 
 // リフレッシュ
