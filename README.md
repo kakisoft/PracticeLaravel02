@@ -93,7 +93,12 @@ php artisan make:request PostRequest
 php artisan make:controller PostsController
 php artisan make:controller CommentsController
 
-php artisan make:controller API/CallMeAPIController
+
+// web コントローラ
+php artisan make:controller Question01Controller
+
+
+// API コントローラ
 php artisan make:controller API/Question01ApiController
 ```
 

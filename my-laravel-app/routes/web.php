@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 
+
+//==========< Blog >==========
 Route::get('/', 'PostsController@index');
 // Route::get('/posts/{id}', 'PostsController@show');
 Route::get('/posts/{post}', 'PostsController@show')->where('post', '[0-9]+');
@@ -26,6 +28,14 @@ Route::delete('/posts/{post}', 'PostsController@destroy');
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 Route::delete('/posts/{post}/comments/{comment}', 'CommentsController@destroy');
 
+
+//==========< Auto Generated >==========
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//==========< Question >==========
+Route::get('/question01', 'Question01Controller@index');
+
+
