@@ -8,6 +8,6 @@ class Question01Controller extends Controller
 {
     //
     public function index() {
-        return "Question01Controller index";
+        return view('question01.index');
     }
 }
