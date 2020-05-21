@@ -18,13 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //// まとめずに書くなら、こんな感じ
-// Route::get('call/me', 'API\Question01Controller@callMeGet');
+// Route::get('call/me', 'API\Question01ApiController@callMeGet');
 
 
 // 先頭「api」をまとめて書く場合、こんな感じ
 Route::group(['namespace' => 'API'], function () {
-    Route::get('call/me', 'Question01Controller@callMeGet');
-    Route::post('call/me', 'Question01Controller@callMePost');
-    Route::get('challenge_users', 'Question01Controller@challenge_usersGet');
-    Route::post('challenge_users', 'Question01Controller@challenge_usersPost');
+    Route::get('call/me', 'Question01ApiController@callMeGet');
+    Route::post('call/me', 'Question01ApiController@callMePost');
+    Route::get('challenge_users', 'Question01ApiController@challenge_usersGet');
+    Route::post('challenge_users', 'Question01ApiController@challenge_usersPost');
 });

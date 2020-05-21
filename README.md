@@ -94,7 +94,7 @@ php artisan make:controller PostsController
 php artisan make:controller CommentsController
 
 php artisan make:controller API/CallMeAPIController
-php artisan make:controller API/Question01Controller
+php artisan make:controller API/Question01ApiController
 ```
 
 
