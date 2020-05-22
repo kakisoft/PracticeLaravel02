@@ -33,6 +33,7 @@ class Question01RegistrationInformation extends Model
     //------------------------------------------
     const MESSAGE___404_ERROR = "No No. Not this way";
     const MESSAGE___405_ERROR = "Sorry. This method is not allowed.";
+    const MESSAGE___INVALID_TOKEN = "Your token is not valid.";
 
     const MESSAGE___CALL_ME_GET         = "Almost! It's not GET. Keep trying.";
     const MESSAGE___CALL_ME_POST        = "Great! Please register as /challenge_users";

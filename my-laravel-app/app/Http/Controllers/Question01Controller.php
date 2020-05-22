@@ -10,12 +10,14 @@ class Question01Controller extends Controller
     /**
      *
      */
-    public function index() {
+    public function index(Request $request) {
+        $special_message = $request->special_message ?? '';
         $number_of_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)->count();
         $recent_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)
                                                                     ->orderBy('created_at', 'desc')->get();
 
         return view('question01.index')->with([
+            "special_message"         => $special_message,
             "number_of_cleared_users" => $number_of_cleared_users,
             "recent_cleared_users"    => $recent_cleared_users,
         ]);
@@ -34,7 +36,9 @@ class Question01Controller extends Controller
 
         //-----< Invalid token  >-----
         if( empty($registration_information) ){
-            return redirect('/question01');
+            return redirect()->action(
+                'Question01Controller@index', ['special_message' => Question01RegistrationInformation::MESSAGE___INVALID_TOKEN]
+            );
         }
 
         return view('question01.regist');

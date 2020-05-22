@@ -3,6 +3,7 @@
 @section('title', 'Blog Posts')
 
 @section('content')
+{{ $special_message }}
 <div style="text-align: center;">
 
   <h2>Please call my APIs.</h2>
