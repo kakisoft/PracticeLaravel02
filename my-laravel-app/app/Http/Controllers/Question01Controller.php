@@ -7,11 +7,24 @@ use App\Models\Question01RegistrationInformation;
 
 class Question01Controller extends Controller
 {
-     public function index() {
-        return view('question01.index');
+    /**
+     *
+     */
+    public function index() {
+        $number_of_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)->count();
+        $recent_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)
+                                                                    ->orderBy('created_at', 'desc')->get();
+
+        return view('question01.index')->with([
+            "number_of_cleared_users" => $number_of_cleared_users,
+            "recent_cleared_users"    => $recent_cleared_users,
+        ]);
     }
 
-    public function regist(string $token) {
+    /**
+     *
+     */
+    public function input_cleared_user_infomation(string $token) {
 
         //-----< Get RegistrationInformation Data >-----
         $query = Question01RegistrationInformation::query();
@@ -23,7 +36,6 @@ class Question01Controller extends Controller
         if( empty($registration_information) ){
             return redirect('/question01');
         }
-
 
         return view('question01.regist');
     }

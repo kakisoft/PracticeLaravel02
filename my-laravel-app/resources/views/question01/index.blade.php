@@ -19,10 +19,30 @@
 
 <hr>
   <div>
-    The Winners ( 9696 )
+    The Winners ( {{$number_of_cleared_users}} )
+    <div>
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Comment</th>
+        </tr>
+
+        @forelse ($recent_cleared_users as $recent_cleared_user)
+          <tr>
+            <td>{{ $recent_cleared_user->id }}</td>
+            <td>{{ $recent_cleared_user->created_at }}</td>
+            <td>{{ $recent_cleared_user->name }}</td>
+            <td>{{ $recent_cleared_user->comment }}</td>
+          </tr>
+        @endforeach
+
+      </table>
+    </div>
   </div>
   <div>
-    All winners ( 9696 )
+    All winners ( {{$number_of_cleared_users}} )
   </div>
 <div>
 @endsection
