@@ -20,7 +20,7 @@
 
 <hr>
   <div>
-    The Winners ( {{$number_of_cleared_users}} )
+    <p>The Winners ( {{$number_of_cleared_users}} )</p>
     <div>
       <table>
         <tr>
@@ -43,7 +43,7 @@
     </div>
   </div>
   <div>
-    All winners ( {{$number_of_cleared_users}} )
+    <p>All winners ( {{$number_of_cleared_users}} )</p>
   </div>
 <div>
 @endsection
