@@ -5,9 +5,9 @@
 @section('content')
 
 @if (session('special_message'))
-    <div>
-        {{ session('special_message') }}
-    </div>
+  <div>
+    {{ session('special_message') }}
+  </div>
 @endif
 
 <div style="text-align: center;">
