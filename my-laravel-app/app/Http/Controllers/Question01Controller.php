@@ -16,8 +16,8 @@ class Question01Controller extends Controller
         $recent_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)
                                                                     ->orderBy('created_at', 'desc')->get();
 
+
         return view('question01.index')->with([
-            "special_message"         => $special_message,
             "number_of_cleared_users" => $number_of_cleared_users,
             "recent_cleared_users"    => $recent_cleared_users,
         ]);
@@ -36,9 +36,8 @@ class Question01Controller extends Controller
 
         //-----< Invalid token  >-----
         if( empty($registration_information) ){
-            return redirect()->action(
-                'Question01Controller@index', ['special_message' => Question01RegistrationInformation::MESSAGE___INVALID_TOKEN]
-            );
+            session()->flash('special_message', Question01RegistrationInformation::MESSAGE___INVALID_TOKEN);
+            return redirect()->action('Question01Controller@index');
         }
 
         return view('question01.regist');

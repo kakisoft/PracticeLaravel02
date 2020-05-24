@@ -47,3 +47,10 @@ $ curl -s -X POST -d "name=B810O63g&email=kakisttab@gmail.com" https://challenge
 
 
 Your token is not valid
+
+
+
+
+
+
+http://challenge-your-limits.herokuapp.com/challenge_users/token/2wZF4BoFTOU
