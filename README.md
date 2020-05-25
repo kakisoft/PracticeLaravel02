@@ -1,5 +1,6 @@
 # PracticeLaravel02
-Laravel で色々遊ぶ用のリポジトリ
+Laravel で色々遊ぶ用のリポジトリ  
+5.5.49
 
 
 ## 起動・終了
