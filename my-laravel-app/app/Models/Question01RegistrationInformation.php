@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int      $id
  * @property string   $name
  * @property string   $email
- * @property string   $password
  * @property string   $for_regist_token
  * @property string   $comment
  * @property boolean  $is_cleared
@@ -40,7 +39,6 @@ class Question01RegistrationInformation extends Model
     const MESSAGE___CHALLENGE_USERS_GET = "GET? No. No.";
 
     const MESSAGE___CHALLENGE_USERS_POST___NAME_BLANK         = "Validation Error, [:name, \"can't be blank\"]";
-    const MESSAGE___CHALLENGE_USERS_POST___NAME_ALREADY_USED  = "name already taken";
     const MESSAGE___CHALLENGE_USERS_POST___EMAIL_BLANK        = "Validation Error, [:email, \"can't be blank\"]";
     const MESSAGE___CHALLENGE_USERS_POST___EMAIL_ALREADY_USED = "email already taken";
     const MESSAGE___CHALLENGE_USERS_POST___EMAIL_INVALID      = "Validation Error, [:email, \"is invalid\"]";
@@ -86,52 +84,82 @@ class Question01RegistrationInformation extends Model
      */
     public static function challenge_usersPost(?string $name, ?string $email)
     {
+        $encoded_return_contents = null;
+
+        //----------( Check for invalid input )----------
+        $hasInvaliedInput = self::getHasInvalidInputStatus($encoded_return_contents, $name, $email);
+        if($hasInvaliedInput){
+            // return if there is invalid input.
+            return $encoded_return_contents;
+        }
+
+
+        //----------( create cleared users infomation )----------
+        self::store($encoded_return_contents, $name, $email);
+        return $encoded_return_contents;
+    }
+
+    /**
+     *
+     */
+    private static function getHasInvalidInputStatus(&$encoded_return_contents, ?string $name, ?string $email)
+    {
         $return_contents = [];
 
         //-----( name is blank )-----
         if( empty($name) ){
             $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___NAME_BLANK;
-            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
-        }
-
-        //-----( name already used )-----
-        $question01_registration_information_from_name = self::where('name', '=', $name)->first();
-        if( empty($question01_registration_information_from_name) == false){
-            $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___NAME_ALREADY_USED;
-            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
-
+            $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+            return true;
         }
 
         //-----( email is blank )-----
         if( is_null($email) ){
             $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___EMAIL_BLANK;
-            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+            $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+            return true;
         }
 
         //-----( email format check )-----
         if( filter_var($email, FILTER_VALIDATE_EMAIL) == false){
             $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___EMAIL_INVALID;
-            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+            $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+            return true;
         }
-
 
         //-----( email already used )-----
         $question01_registration_information_from_email = self::where('email', '=', $email)->first();
         if( empty($question01_registration_information_from_email) == false){
             $return_contents['message'] = self::MESSAGE___CHALLENGE_USERS_POST___EMAIL_ALREADY_USED;
-            return json_encode($return_contents, JSON_UNESCAPED_SLASHES);
-
+            $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+            return true;
         }
 
 
-        // {"message":"Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/M-ED_X9MVEQ  from your web browser."}
+        // There were no invalid parameters.
+        return false;
+    }
 
+    /**
+     *
+     */
+    public static function store(&$encoded_return_contents, string $name, string $email) : bool
+    {
+        //----------( save )----------
+        $token = str_random(10);
+        $registration_information = new Question01RegistrationInformation();
+        $registration_information->name             = $name;
+        $registration_information->email            = $email;
+        $registration_information->for_regist_token = $token;
+        $registration_information->is_cleared       = self::IS_CLEARED___FALSE;
+        $registration_information->save();
 
-
-        $return_contents['message'] = "OK!";
+        //----------( create return contents )----------
+        $return_contents = [];
+        $return_contents['message'] = "Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/M-ED_X9MVEQ  from your web browser.";
         $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
 
-        return $encoded_return_contents;
+        return true;
     }
 }
 
