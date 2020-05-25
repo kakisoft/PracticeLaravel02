@@ -85,7 +85,7 @@ class Question01RegistrationInformation extends Model
     /**
      *
      */
-    public static function challenge_usersPost(?string $name, ?string $email)
+    public static function challenge_usersPost(?string $name, ?string $email): string
     {
         $encoded_return_contents = null;
 
@@ -105,7 +105,7 @@ class Question01RegistrationInformation extends Model
     /**
      *
      */
-    private static function getHasInvalidInputStatus(&$encoded_return_contents, ?string $name, ?string $email)
+    private static function getHasInvalidInputStatus(&$encoded_return_contents, ?string $name, ?string $email) : bool
     {
         $return_contents = [];
 
