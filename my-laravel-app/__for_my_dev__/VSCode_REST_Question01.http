@@ -6,13 +6,14 @@
 @baseurl = http://localhost:8000/api
 @name = sample_02
 @invalid_email = sample_02
+@already_taken_email = foo@gmail.com
 @valid_email = sample_02@gmail.com
 
 #====================================
 #
 #====================================
 
-GET {{baseurl}}/call/me
+GET {{baseurl}}/call/me?param1=val1
 
 ###
 POST {{baseurl}}/call/me
@@ -43,6 +44,17 @@ content-type: application/json
 {
     "name": "{{name}}",
     "email": "{{invalid_email}}"
+}
+
+
+###
+
+POST {{baseurl}}/challenge_users
+content-type: application/json
+
+{
+    "name": "{{name}}",
+    "email": "{{already_taken_email}}"
 }
 
 

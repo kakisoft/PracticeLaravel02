@@ -43,6 +43,8 @@ class Question01RegistrationInformation extends Model
     const MESSAGE___CHALLENGE_USERS_POST___EMAIL_ALREADY_USED = "email already taken";
     const MESSAGE___CHALLENGE_USERS_POST___EMAIL_INVALID      = "Validation Error, [:email, \"is invalid\"]";
 
+    const MESSAGE___CHALLENGE_USERS_POST___CLEAR_MESSAGE      = "Thanks! Please access to %s/question01/challenge_users/token/%s  from your web browser.";
+
     /**
      *
      */
@@ -156,7 +158,8 @@ class Question01RegistrationInformation extends Model
 
         //----------( create return contents )----------
         $return_contents = [];
-        $return_contents['message'] = "Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/M-ED_X9MVEQ  from your web browser.";
+        $message = sprintf(self::MESSAGE___CHALLENGE_USERS_POST___CLEAR_MESSAGE, url()->previous(), $token);
+        $return_contents['message'] = $message;
         $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
 
         return true;
