@@ -32,6 +32,7 @@ class Question01RegistrationInformation extends Model
     //------------------------------------------
     const MESSAGE___404_ERROR = "No No. Not this way";
     const MESSAGE___405_ERROR = "Sorry. This method is not allowed.";
+    const MESSAGE___SERVER_ERROR  = "Sorry. A server error occurred...  The administrator confirms this issue.";
     const MESSAGE___INVALID_TOKEN = "Your token is not valid.";
 
     const MESSAGE___CALL_ME_GET         = "Almost! It's not GET. Keep trying.";
@@ -147,22 +148,35 @@ class Question01RegistrationInformation extends Model
      */
     public static function store(&$encoded_return_contents, string $name, string $email) : bool
     {
-        //----------( save )----------
-        $token = str_random(10);
-        $registration_information = new Question01RegistrationInformation();
-        $registration_information->name             = $name;
-        $registration_information->email            = $email;
-        $registration_information->for_regist_token = $token;
-        $registration_information->is_cleared       = self::IS_CLEARED___FALSE;
-        $registration_information->save();
-
-        //----------( create return contents )----------
         $return_contents = [];
-        $message = sprintf(self::MESSAGE___CHALLENGE_USERS_POST___CLEAR_MESSAGE, url()->previous(), $token);
-        $return_contents['message'] = $message;
-        $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
 
-        return true;
+        try{
+            //----------( save )----------
+            $token = str_random(10);
+            $registration_information = new Question01RegistrationInformation();
+            $registration_information->name             = $name;
+            $registration_information->email            = $email;
+            $registration_information->for_regist_token = $token;
+            $registration_information->is_cleared       = self::IS_CLEARED___FALSE;
+            $registration_information->save();
+
+
+            //----------( create return contents )----------
+            $message = sprintf(self::MESSAGE___CHALLENGE_USERS_POST___CLEAR_MESSAGE, url()->previous(), $token);
+            $return_contents['message'] = $message;
+            $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+
+
+            return true;
+         }
+         catch(\Exception $e){
+            \Log::emergency($e->getMessage());
+
+            $return_contents['message'] = self::MESSAGE___SERVER_ERROR;
+            $encoded_return_contents = json_encode($return_contents, JSON_UNESCAPED_SLASHES);
+
+            return false;
+         }
     }
 }
 
