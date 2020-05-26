@@ -37,6 +37,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //==========< Question >==========
 Route::get('/question01', 'Question01Controller@index');
-Route::get('/question01/challenge_users/token/{token}', 'Question01Controller@input_cleared_user_infomation');
+Route::get('/question01/winners', 'Question01Controller@winners');
+Route::get('/question01/challenge_users/token/{token}', 'Question01Controller@inputClearedUserInfomation');
 
 

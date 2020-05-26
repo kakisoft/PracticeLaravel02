@@ -26,7 +26,16 @@ class Question01Controller extends Controller
     /**
      *
      */
-    public function input_cleared_user_infomation(string $token) {
+    public function winners() {
+
+
+        return view('question01.winners');
+    }
+
+    /**
+     *
+     */
+    public function inputClearedUserInfomation(string $token) {
 
         //-----< Get RegistrationInformation Data >-----
         $query = Question01RegistrationInformation::query();
