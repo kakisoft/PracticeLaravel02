@@ -6,9 +6,10 @@ curl -X POST https://challenge-your-limits.herokuapp.com/challenge_users
 curl -X POST -d "name=B810O63g" https://challenge-your-limits.herokuapp.com/challenge_users
 curl -s -X POST -d "name=B810O63g&email=B810O63g@gmail.com" https://challenge-your-limits.herokuapp.com/challenge_users
 
-curl -s -X POST -d "name=B810O63g&email=B810O63g@gmail.com" https://challenge-your-limits.herokuapp.com/challenge_users
+curl -s -X POST -d "name=B810O63h&email=B810O63h@gmail.com" https://challenge-your-limits.herokuapp.com/challenge_users
 {"message":"Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/rFkUwKhfSj0  from your web browser."}
 
+{"message":"Thanks! Please access to http://challenge-your-limits.herokuapp.com/challenge_users/token/eFbEhSeIJmQ  from your web browser."}
 
 =========================================================
 

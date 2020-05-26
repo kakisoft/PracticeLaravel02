@@ -28,8 +28,17 @@ class Question01Controller extends Controller
      */
     public function winners() {
 
-
         return view('question01.winners');
+    }
+
+
+    /**
+     *
+     */
+    public function reflectClearedUserInputData() {
+        // save
+
+        return redirect()->action('Question01Controller@winners');
     }
 
     /**

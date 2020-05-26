@@ -12,17 +12,19 @@
   <hr>
 
   <div class="form-horizontal" role="form">
-    <form class="edit_user" action="/question01/winners" accept-charset="UTF-8" method="post">
+    <form method="post" accept-charset="UTF-8" action="{{action('Question01Controller@reflectClearedUserInputData')}}">
+    {{ csrf_field() }}
+    {{ method_field('patch') }}
+
       <div class="form-group">
         <label for="user_name">Name</label>
-        <input class="form-control" type="text" value="sample_sample_02" name="user[name]" id="user_name" />
+        <input class="form-control" type="text" value="default_name" name="user[name]" id="user_name" />
       </div>
       <br>
 
       <div class="form-group"><label for="user_comment">Comment</label>
-      <textarea class="form-control" name="user[comment]" id="user_comment">
-
-      </textarea>
+        <textarea class="form-control" name="user[comment]" id="user_comment">
+        </textarea>
       </div>
 
       <br>
