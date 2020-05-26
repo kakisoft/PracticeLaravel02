@@ -39,6 +39,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/question01', 'Question01Controller@index');
 Route::get('/question01/winners', 'Question01Controller@winners');
 Route::patch('/question01/challenge_users/save/', 'Question01Controller@reflectClearedUserInputData');
+Route::get('/question01/challenge_users/save/', function () {
+    return redirect('/question01/winners');
+});
 Route::get('/question01/challenge_users/token/{token}', 'Question01Controller@inputClearedUserInfomation');
 
 
