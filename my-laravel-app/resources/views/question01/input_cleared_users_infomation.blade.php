@@ -10,7 +10,7 @@
   </div>
 
   <hr>
-
+  Comment can't be blank
   <div class='form-horizontal' role='form'>
     <form method='post' accept-charset='UTF-8' action='{{action('Question01Controller@reflectClearedUserInputData')}}'>
     {{ csrf_field() }}
