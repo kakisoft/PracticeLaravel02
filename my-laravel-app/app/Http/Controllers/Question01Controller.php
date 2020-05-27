@@ -35,8 +35,14 @@ class Question01Controller extends Controller
     /**
      *
      */
-    public function reflectClearedUserInputData() {
-        // save
+    public function reflectClearedUserInputData(Request $request) {
+
+        // Save the cleared user information entered by the user.
+        $post = Question01RegistrationInformation::find($request->user['id']);
+        $post->name       = $request->user['name'];
+        $post->comment    = $request->user['comment'];
+        $post->is_cleared = Question01RegistrationInformation::IS_CLEARED___TRUE;
+        $post->save();
 
         return redirect()->action('Question01Controller@winners');
     }
@@ -50,7 +56,7 @@ class Question01Controller extends Controller
         $query = Question01RegistrationInformation::query();
         $query->where('for_regist_token', $token);
         $query->where('is_cleared', Question01RegistrationInformation::IS_CLEARED___FALSE);
-        $registration_information = $query->get()->toArray();
+        $registration_information = $query->first();
 
         //-----< Invalid token  >-----
         if( empty($registration_information) ){
@@ -58,7 +64,7 @@ class Question01Controller extends Controller
             return redirect()->action('Question01Controller@index');
         }
 
-        return view('question01.input_cleared_users_infomation');
+        return view('question01.input_cleared_users_infomation')->with('registration_information', $registration_information);
     }
 
 }
