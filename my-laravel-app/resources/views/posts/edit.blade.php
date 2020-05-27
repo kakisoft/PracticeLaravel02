@@ -15,7 +15,7 @@
   <p>
     <input type="text" name="title" placeholder="enter title" value="{{ old('title', $post->title) }}">
     @if ($errors->has('title'))
-    <span class="error">{{ $errors->first('title') }}</span>
+      <span class="error">{{ $errors->first('title') }}</span>
     @endif
   </p>
   <p>
