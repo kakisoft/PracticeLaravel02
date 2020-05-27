@@ -58,7 +58,7 @@ class Question01Controller extends Controller
             return redirect()->action('Question01Controller@index');
         }
 
-        return view('question01.regist');
+        return view('question01.input_cleared_users_infomation');
     }
 
 }
