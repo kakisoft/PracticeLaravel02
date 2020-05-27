@@ -11,7 +11,6 @@ class Question01Controller extends Controller
      *
      */
     public function index(Request $request) {
-        $special_message = $request->special_message ?? '';
         $number_of_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)->count();
         $recent_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)
                                                                     ->orderBy('created_at', 'desc')->get();
