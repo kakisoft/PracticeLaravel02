@@ -46,7 +46,7 @@ class Question01Controller extends Controller
      */
     public function inputClearedUserInfomation(string $token) {
 
-        //-----< Get RegistrationInformation Data >-----
+        //-----< Get RegistrationInformation Record >-----
         $query = Question01RegistrationInformation::query();
         $query->where('for_regist_token', $token);
         $query->where('is_cleared', Question01RegistrationInformation::IS_CLEARED___FALSE);
