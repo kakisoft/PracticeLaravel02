@@ -12,6 +12,8 @@
 <form method="post" action="{{ url('/posts', $post) }}">
   {{ csrf_field() }}
   {{ method_field('patch') }}
+  <!-- Route::patch('/posts/{post}', 'PostsController@update'); -->
+
   <p>
     <input type="text" name="title" placeholder="enter title" value="{{ old('title', $post->title) }}">
     @if ($errors->has('title'))
