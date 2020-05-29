@@ -86,6 +86,7 @@ php artisan migrate
 ## RequestModel追加
 ```
 php artisan make:request PostRequest
+php artisan make:request Question01RegistrationInformationRequest
 ```
 
 

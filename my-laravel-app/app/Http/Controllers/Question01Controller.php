@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Question01RegistrationInformationRequest;
 use App\Models\Question01RegistrationInformation;
 
 class Question01Controller extends Controller
@@ -34,14 +35,21 @@ class Question01Controller extends Controller
     /**
      *
      */
+    // public function reflectClearedUserInputData(Question01RegistrationInformationRequest $request) {
     public function reflectClearedUserInputData(Request $request) {
+        $this->validate($request, [
+            'comment' => 'required'
+        ]);
 
-        // Save the cleared user information entered by the user.
-        $post = Question01RegistrationInformation::find($request->user['id']);
-        $post->name       = $request->user['name'];
-        $post->comment    = $request->user['comment'];
-        $post->is_cleared = Question01RegistrationInformation::IS_CLEARED___TRUE;
-        $post->save();
+
+        // // Question01RegistrationInformationRequest
+
+        // // Save the cleared user information entered by the user.
+        // $post = Question01RegistrationInformation::find($request->user['id']);
+        // $post->name       = $request->user['name'];
+        // $post->comment    = $request->user['comment'];
+        // $post->is_cleared = Question01RegistrationInformation::IS_CLEARED___TRUE;
+        // $post->save();
 
         return redirect()->action('Question01Controller@winners');
     }

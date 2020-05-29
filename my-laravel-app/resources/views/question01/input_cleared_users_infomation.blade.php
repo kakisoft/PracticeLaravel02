@@ -10,7 +10,10 @@
   </div>
 
   <hr>
-  Comment can't be blank
+@error('title')
+  <div class="alert alert-danger">{{ $message }}</div>
+@enderror
+
   <div class='form-horizontal' role='form'>
     <form method='post' accept-charset='UTF-8' action='{{action('Question01Controller@reflectClearedUserInputData')}}'>
     {{ csrf_field() }}
@@ -24,7 +27,8 @@
       <br>
 
       <div class='form-group'><label for='user_comment'>Comment</label>
-        <textarea class='form-control' name='user[comment]' id='user_comment'></textarea>
+        {{-- <textarea class='form-control' name='user[comment]' id='user_comment'></textarea> --}}
+        <textarea class='form-control' name='comment' id='comment'></textarea>
       </div>
 
       <br>
