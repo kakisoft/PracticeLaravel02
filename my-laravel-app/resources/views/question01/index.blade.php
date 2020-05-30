@@ -53,7 +53,7 @@
       </div>
     </div>
     <div>
-      <p>All winners ( {{$number_of_cleared_users}} )</p>
+      <p><a href="{{ action('Question01Controller@winners') }}">All winners ( {{$number_of_cleared_users}} )</p>
     </div>
     @endif
 <div>

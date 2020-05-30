@@ -25,6 +25,27 @@
     </div>
 <hr>
 
+<div>
+    <div>
+        <table>
+        <tr>
+            <th>No.</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Comment</th>
+        </tr>
+
+        @foreach ($cleared_users as $cleared_user)
+            <tr>
+            <td>{{ $cleared_user->id }}</td>
+            <td>{{ $cleared_user->created_at }}</td>
+            <td>{{ $cleared_user->name }}</td>
+            <td>{{ $cleared_user->comment }}</td>
+            </tr>
+        @endforeach
+        </table>
+    </div>
+</div>
 
 
 

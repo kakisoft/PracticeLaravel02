@@ -15,7 +15,9 @@ class Question01Controller extends Controller
     public function index(Request $request) {
         $number_of_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)->count();
         $recent_cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)
-                                                                    ->orderBy('created_at', 'desc')->get();
+                                                                    ->orderBy('created_at', 'desc')
+                                                                    ->take(5)
+                                                                    ->get();
 
 
         return view('question01.index')->with([
@@ -28,10 +30,13 @@ class Question01Controller extends Controller
      *
      */
     public function winners() {
+        $cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)
+                                                                    ->orderBy('created_at', 'desc')->get();
 
-        return view('question01.winners');
+        return view('question01.winners')->with([
+            "cleared_users" => $cleared_users
+        ]);
     }
-
 
     /**
      *
