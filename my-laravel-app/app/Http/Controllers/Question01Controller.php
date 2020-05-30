@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Question01RegistrationInformationRequest;
 use App\Models\Question01RegistrationInformation;
+use Exception;
 
 class Question01Controller extends Controller
 {
@@ -37,12 +38,21 @@ class Question01Controller extends Controller
      */
     public function reflectClearedUserInputData(Question01RegistrationInformationRequest $request) {
 
-        // Save the cleared user information entered by the user.
-        $post = Question01RegistrationInformation::find($request->user['id']);
-        $post->name       = $request->user['name'];
-        $post->comment    = $request->user['comment'];
-        $post->is_cleared = Question01RegistrationInformation::IS_CLEARED___TRUE;
-        $post->save();
+        try{
+            // Save the cleared user information entered by the user.
+            $registration_information = Question01RegistrationInformation::find($request->id);
+            if($registration_information->is_cleared === Question01RegistrationInformation::IS_CLEARED___TRUE){
+                throw new Exception();
+            }
+            $registration_information->name       = $request->name;
+            $registration_information->comment    = $request->comment;
+            $registration_information->is_cleared = Question01RegistrationInformation::IS_CLEARED___TRUE;
+            $registration_information->save();
+
+        } catch (Exception $e) {
+            session()->flash('special_message', 'Sorry. An error occurred.');
+            return redirect()->action('Question01Controller@index');
+        }
 
         return redirect()->action('Question01Controller@winners');
     }
