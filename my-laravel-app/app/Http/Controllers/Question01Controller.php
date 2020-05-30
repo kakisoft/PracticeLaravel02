@@ -54,6 +54,7 @@ class Question01Controller extends Controller
             return redirect()->action('Question01Controller@index');
         }
 
+        session()->flash('special_message', 'Thank you for your message!');
         return redirect()->action('Question01Controller@winners');
     }
 
