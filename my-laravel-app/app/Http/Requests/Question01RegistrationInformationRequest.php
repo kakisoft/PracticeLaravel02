@@ -24,6 +24,7 @@ class Question01RegistrationInformationRequest extends FormRequest
     public function rules()
     {
         return [
+            'name'    => 'required',
             'comment' => 'required'
         ];
     }
@@ -34,6 +35,7 @@ class Question01RegistrationInformationRequest extends FormRequest
      */
     public function messages() {
         return [
+          'name.required'    => "Name can't be blank",
           'comment.required' => "Comment can't be blank"
         ];
       }

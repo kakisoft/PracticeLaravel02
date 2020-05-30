@@ -35,21 +35,14 @@ class Question01Controller extends Controller
     /**
      *
      */
-    // public function reflectClearedUserInputData(Question01RegistrationInformationRequest $request) {
-    public function reflectClearedUserInputData(Request $request) {
-        $this->validate($request, [
-            'comment' => 'required'
-        ]);
+    public function reflectClearedUserInputData(Question01RegistrationInformationRequest $request) {
 
-
-        // // Question01RegistrationInformationRequest
-
-        // // Save the cleared user information entered by the user.
-        // $post = Question01RegistrationInformation::find($request->user['id']);
-        // $post->name       = $request->user['name'];
-        // $post->comment    = $request->user['comment'];
-        // $post->is_cleared = Question01RegistrationInformation::IS_CLEARED___TRUE;
-        // $post->save();
+        // Save the cleared user information entered by the user.
+        $post = Question01RegistrationInformation::find($request->user['id']);
+        $post->name       = $request->user['name'];
+        $post->comment    = $request->user['comment'];
+        $post->is_cleared = Question01RegistrationInformation::IS_CLEARED___TRUE;
+        $post->save();
 
         return redirect()->action('Question01Controller@winners');
     }
