@@ -112,10 +112,10 @@ php artisan make:seeder UsersTableSeeder
 php artisan make:seeder Question01RegistrationInformationTableSeeder
 
 
-// 実行
+// 実行（前準備だっけ？）
 composer dump-autoload
 
-
+// データ作成
 php artisan db:seed
 php artisan db:seed --class=UsersTableSeeder
 php artisan db:seed --class=Question01RegistrationInformationTableSeeder
