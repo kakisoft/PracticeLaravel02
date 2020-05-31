@@ -24,6 +24,7 @@
     </div>
     </div>
 <hr>
+    {{$cleared_users->links()}}
 
 <div>
     <div>

@@ -31,7 +31,7 @@ class Question01Controller extends Controller
      */
     public function winners() {
         $cleared_users = Question01RegistrationInformation::where('is_cleared', Question01RegistrationInformation::IS_CLEARED___TRUE)
-                                                                    ->orderBy('created_at', 'desc')->get();
+                                                                    ->orderBy('created_at', 'desc')->paginate(5);
 
         return view('question01.winners')->with([
             "cleared_users" => $cleared_users
