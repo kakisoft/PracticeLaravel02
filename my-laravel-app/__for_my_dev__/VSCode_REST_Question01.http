@@ -3,7 +3,7 @@
 #====================================
 
 # @baseurl = https://challenge-your-limits.herokuapp.com
-@baseurl = http://localhost:8000/api
+@baseurl = http://localhost:8000/api/q01
 @name = sample_02
 @invalid_email = sample_02
 @already_taken_email = foo@gmail.com
