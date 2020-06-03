@@ -42,14 +42,14 @@ Route::group(['namespace' => 'API'], function () {
         Route::post('challenge_users', 'Question01ApiController@challenge_usersPost');
     });
 
-    // //--------------------------------
-    // //         Question 02
-    // //--------------------------------
-    // Route::prefix('q02')->group(function () {
-    //     Route::get('call/me', 'Question02ApiController@callMeGet');
-    //     Route::post('call/me', 'Question02ApiController@callMePost');
-    //     Route::get('challenge_users', 'Question02ApiController@challenge_usersGet');
-    //     Route::post('challenge_users', 'Question02ApiController@challenge_usersPost');
-    // });
+    //--------------------------------
+    //         Question 02
+    //--------------------------------
+    Route::prefix('q02')->group(function () {
+        Route::get('call/me', 'Question02ApiController@callMeGet');
+        Route::post('call/me', 'Question02ApiController@callMePost');
+        Route::get('challenge_users', 'Question02ApiController@challenge_usersGet');
+        Route::post('challenge_users', 'Question02ApiController@challenge_usersPost');
+    });
 
 });

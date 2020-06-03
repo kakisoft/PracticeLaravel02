@@ -170,7 +170,11 @@ Awesome! Can you come over here? === R29vZCBqb2IhISBQbGVhc2UgYWNjZXNzIHRvIHRoZSB
 R29vZCBqb2IhISBQbGVhc2UgYWNjZXNzIHRvIHRoZSB1cmwgZnJvbSB5b3VyIHdlYiBicm93c2VyLiA9PT0gXApodHRwOi8vY2hhbGxlbmdlLXlvdXItbGltaXRzMi5oZXJva3VhcHAuY29tL3dpbm5lcl9jb21tZW50cy93cVlEX1psaW1CNHA4cVU2
 
 
+$encoded_str = base64_encode("");
+echo $encoded_str;
 
+
+-----------------------------------------------------------------------------
 
 λ curl http://challenge-your-limits2.herokuapp.com/something/something
 {"error":"Yo, this is just an example. Go back and 'call/my/APIs'"}
@@ -178,8 +182,6 @@ R29vZCBqb2IhISBQbGVhc2UgYWNjZXNzIHRvIHRoZSB1cmwgZnJvbSB5b3VyIHdlYiBicm93c2VyLiA9
 
 
 
-$encoded_str = base64_encode("");
-echo $encoded_str;
 
 
 
