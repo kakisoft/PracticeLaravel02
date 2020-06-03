@@ -14,18 +14,6 @@
 #====================================
 
 ###
-HEAD {{baseurl}}/call/my/APIs
-###
-CONNECT {{baseurl}}/call/my/APIs
-###
-OPTIONS {{baseurl}}/call/my/APIs
-###
-TRACE {{baseurl}}/call/my/APIs
-
-
-
-
-###
 GET {{baseurl}}/call/my/APIs
 ###
 POST {{baseurl}}/call/my/APIs
@@ -34,10 +22,6 @@ PUT {{baseurl}}/call/my/APIs
 ###
 DELETE {{baseurl}}/call/my/APIs
 ###
-CONNECT {{baseurl}}/call/my/APIs
-###
 OPTIONS {{baseurl}}/call/my/APIs
-###
-TRACE {{baseurl}}/call/my/APIs
 ###
 PATCH {{baseurl}}/call/my/APIs

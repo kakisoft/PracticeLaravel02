@@ -27,4 +27,8 @@ class Question02ApiController extends Controller
         return "callMyAPIS_PATCH";
     }
 
+    public function callMyApis_OPTIONS() {
+        return "callMyApis_OPTIONS";
+    }
+
 }

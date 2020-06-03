@@ -47,16 +47,11 @@ Route::group(['namespace' => 'API'], function () {
     //--------------------------------
     Route::prefix('q02')->group(function () {
         Route::get('call/my/APIs', 'Question02ApiController@callMyApis_GET');
-        Route::POST('call/my/APIs', 'Question02ApiController@callMyApis_POST');
-        Route::PUT('call/my/APIs', 'Question02ApiController@callMyApis_PUT');
-        Route::DELETE('call/my/APIs', 'Question02ApiController@callMyApis_DELETE');
-        Route::PATCH('call/my/APIs', 'Question02ApiController@callMyApis_PATCH');
-
-        // Route::HEAD('call/my/APIs', 'Question02ApiController@callMyApis_GET');
-        // Route::CONNECT('call/my/APIs', 'Question02ApiController@callMyApis_GET');
-        // Route::OPTIONS('call/my/APIs', 'Question02ApiController@callMyApis_GET');
-        // Route::TRACE('call/my/APIs', 'Question02ApiController@callMyApis_GET');
-
+        Route::post('call/my/APIs', 'Question02ApiController@callMyApis_POST');
+        Route::put('call/my/APIs', 'Question02ApiController@callMyApis_PUT');
+        Route::patch('call/my/APIs', 'Question02ApiController@callMyApis_PATCH');
+        Route::delete('call/my/APIs', 'Question02ApiController@callMyApis_DELETE');
+        Route::options('call/my/APIs', 'Question02ApiController@callMyApis_OPTIONS');
     });
 
 });
