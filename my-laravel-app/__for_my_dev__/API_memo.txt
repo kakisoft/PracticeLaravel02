@@ -65,3 +65,121 @@ http://localhost:8000/question01/challenge_users/token/UBflduP5TQ
 
 
 
+============================================================================================================
+
+λ curl -X POST http://challenge-your-limits2.herokuapp.com/call/my/APIs
+{"error":"Nope. Keep trying. End Point is correct"}
+
+
+λ curl -X GET http://challenge-your-limits2.herokuapp.com/call/my/APIs
+{"error":"Ok. Let's get started! End Point is correct. But HTTP Method should be..."}
+
+
+λ curl -X HEAD http://challenge-your-limits2.herokuapp.com/call/my/APIs
+Warning: Setting custom HTTP method to HEAD with -X/--request may not work the
+Warning: way you want. Consider using -I/--head instead.
+
+
+λ curl -X PUT http://challenge-your-limits2.herokuapp.com/call/my/APIs
+{"error":"Very close. Keep trying. As I said, End Point is correct"}
+
+
+λ curl -X CONNECT http://challenge-your-limits2.herokuapp.com/call/my/APIs
+{"error":"No No. Not this way"}
+
+
+λ curl -X OPTIONS http://challenge-your-limits2.herokuapp.com/call/my/APIs
+{"error":"No No. Not this way"}
+
+
+λ curl -X TRACE http://challenge-your-limits2.herokuapp.com/call/my/APIs
+{"error":"No No. Not this way"}
+
+
+λ curl -X PATCH http://challenge-your-limits2.herokuapp.com/call/my/APIs
+{"error":"Very close. Keep trying. As I said, End Point is correct"}
+
+
+λ curl -X DELETE http://challenge-your-limits2.herokuapp.com/call/my/APIs
+{"message":"Well done! haha! Surprised? Yeah, the answer was DELETE. Ok. Next === /c2_users/:id/hacker_apply"}
+
+
+
+λ curl -X GET http://challenge-your-limits2.herokuapp.com/c2_users/:id/hacker_apply
+{"error":"Please authenticate using Basic Auth with your username and password. You want a clue? Shout out 'help/me/out'"}
+
+
+
+λ curl -X GET http://challenge-your-limits2.herokuapp.com/help/me/out
+{"message":"By the way, Have you already registered? This is the clue only for REGISTERED user. You should have your id before you check the clue. If you don't, go to /c2_users/ and register. Hey, Registered users! Here you go. === bit.ly/1T8gVdG === You don't know about 'bit.ly'? Google it!"}
+
+
+By the way, Have you already registered? This is the clue only for REGISTERED user.
+You should have your id before you check the clue.
+If you don't, go to /c2_users/ and register.
+Hey, Registered users! Here you go. === bit.ly/1T8gVdG === You don't know about 'bit.ly'? Google it!
+
+
+
+λ curl -X GET http://challenge-your-limits2.herokuapp.com/c2_users
+{"error":"GET? No. No."}
+
+
+λ curl -X POST http://challenge-your-limits2.herokuapp.com/c2_users
+{"error":"Validation Error - [:username, \"can't be blank\"]"}
+
+
+
+λ curl -X POST -d "username=B810O63a" http://challenge-your-limits2.herokuapp.com/c2_users
+{"error":"Validation Error - [:email, \"can't be blank\"]"}
+
+
+
+λ curl -X POST -d "username=B810O63a&email=B810O63a@gmail.com" http://challenge-your-limits2.herokuapp.com/c2_users
+{"id":3943,"username":"B810O63a","email":"B810O63a@gmail.com","password":"OkAnEVleecb_uSX0","comment":null,"created_at":"2020-06-03T07:24:58.937Z","updated_at":"2020-06-03T07:24:58.937Z"}
+
+{
+    "id": 3943,
+    "username": "B810O63a",
+    "email": "B810O63a@gmail.com",
+    "password": "OkAnEVleecb_uSX0",
+    "comment": null,
+    "created_at": "2020-06-03T07:24:58.937Z",
+    "updated_at": "2020-06-03T07:24:58.937Z"
+}
+
+
+
+λ curl -X GET http://challenge-your-limits2.herokuapp.com/c2_users/3943/hacker_apply
+{"error":"Please authenticate using Basic Auth with your username and password. You want a clue? Shout out 'help/me/out'"}
+
+
+
+
+λ curl -u B810O63a:OkAnEVleecb_uSX0 -X GET http://challenge-your-limits2.herokuapp.com/c2_users/3943/hacker_apply
+{"message":"Awesome! Can you come over here? === R29vZCBqb2IhISBQbGVhc2UgYWNjZXNzIHRvIHRoZSB1cmwgZnJvbSB5b3VyIHdlYiBicm93c2VyLiA9PT0gXApodHRwOi8vY2hhbGxlbmdlLXlvdXItbGltaXRzMi5oZXJva3VhcHAuY29tL3dpbm5lcl9jb21tZW50cy93cVlEX1psaW1CNHA4cVU2
+     You want a clue? Shout out 'give me a clue'"}
+
+
+
+Awesome! Can you come over here? === R29vZCBqb2IhISBQbGVhc2UgYWNjZXNzIHRvIHRoZSB1cmwgZnJvbSB5b3VyIHdlYiBicm93c2VyLiA9PT0gXApodHRwOi8vY2hhbGxlbmdlLXlvdXItbGltaXRzMi5oZXJva3VhcHAuY29tL3dpbm5lcl9jb21tZW50cy93cVlEX1psaW1CNHA4cVU2
+     You want a clue? Shout out 'give me a clue'
+
+
+
+R29vZCBqb2IhISBQbGVhc2UgYWNjZXNzIHRvIHRoZSB1cmwgZnJvbSB5b3VyIHdlYiBicm93c2VyLiA9PT0gXApodHRwOi8vY2hhbGxlbmdlLXlvdXItbGltaXRzMi5oZXJva3VhcHAuY29tL3dpbm5lcl9jb21tZW50cy93cVlEX1psaW1CNHA4cVU2
+
+
+
+
+λ curl http://challenge-your-limits2.herokuapp.com/something/something
+{"error":"Yo, this is just an example. Go back and 'call/my/APIs'"}
+
+
+
+
+$encoded_str = base64_encode("");
+echo $encoded_str;
+
+
+
