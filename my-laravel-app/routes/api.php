@@ -46,10 +46,17 @@ Route::group(['namespace' => 'API'], function () {
     //         Question 02
     //--------------------------------
     Route::prefix('q02')->group(function () {
-        Route::get('call/me', 'Question02ApiController@callMeGet');
-        Route::post('call/me', 'Question02ApiController@callMePost');
-        Route::get('challenge_users', 'Question02ApiController@challenge_usersGet');
-        Route::post('challenge_users', 'Question02ApiController@challenge_usersPost');
+        Route::get('call/my/APIs', 'Question02ApiController@callMyApis_GET');
+        Route::POST('call/my/APIs', 'Question02ApiController@callMyApis_POST');
+        Route::PUT('call/my/APIs', 'Question02ApiController@callMyApis_PUT');
+        Route::DELETE('call/my/APIs', 'Question02ApiController@callMyApis_DELETE');
+        Route::PATCH('call/my/APIs', 'Question02ApiController@callMyApis_PATCH');
+
+        // Route::HEAD('call/my/APIs', 'Question02ApiController@callMyApis_GET');
+        // Route::CONNECT('call/my/APIs', 'Question02ApiController@callMyApis_GET');
+        // Route::OPTIONS('call/my/APIs', 'Question02ApiController@callMyApis_GET');
+        // Route::TRACE('call/my/APIs', 'Question02ApiController@callMyApis_GET');
+
     });
 
 });
