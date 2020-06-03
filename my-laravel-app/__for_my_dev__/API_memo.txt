@@ -67,6 +67,19 @@ http://localhost:8000/question01/challenge_users/token/UBflduP5TQ
 
 ============================================================================================================
 
+GET        {"error":"Ok. Let's get started! End Point is correct. But HTTP Method should be..."}
+HEAD →×
+POST       {"error":"Nope. Keep trying. End Point is correct"}
+PUT        {"error":"Very close. Keep trying. As I said, End Point is correct"}
+DELETE
+CONNECT    {"error":"No No. Not this way"}
+OPTIONS    {"error":"No No. Not this way"}
+TRACE      {"error":"No No. Not this way"}
+PATCH      {"error":"Very close. Keep trying. As I said, End Point is correct"}
+
+
+
+
 λ curl -X POST http://challenge-your-limits2.herokuapp.com/call/my/APIs
 {"error":"Nope. Keep trying. End Point is correct"}
 
