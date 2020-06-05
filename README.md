@@ -115,7 +115,7 @@ php artisan make:seeder Question01RegistrationInformationTableSeeder
 // 実行（前準備だっけ？）
 composer dump-autoload
 
-// データ作成
+// データ作成（シーダを基にレコードを登録）
 php artisan db:seed
 php artisan db:seed --class=UsersTableSeeder
 php artisan db:seed --class=Question01RegistrationInformationTableSeeder
