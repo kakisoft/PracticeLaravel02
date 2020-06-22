@@ -38,16 +38,30 @@ class CommentsController extends Controller
      */
     public function transaction_sample_01() {
 
-        DB::transaction(function () {
-            DB::table('comments')->where('id', 9)->update(['body' => 'changed']);
-            DB::table('comments')->where('id', 8)->update(['post_id' => null]);
-        });
-
-
-        DB::transaction(function () {
+        $exception = DB::transaction(function () {
             DB::table('comments')->where('id', 9)->update(['body' => 'changed']);
             DB::table('comments')->where('id', 8)->update(['post_id' => null]);
         }, 5);  // トランザクションの再試行回数を指定可。試行回数を過ぎたら、例外が投げられる。
+
+
+
+        try {
+            $exception = DB::transaction(function () {
+                DB::table('comments')->where('id', 9)->update(['body' => 'changed']);
+                DB::table('comments')->where('id', 8)->update(['post_id' => null]);
+            }, 5);  // トランザクションの再試行回数を指定可。試行回数を過ぎたら、例外が投げられる。
+
+            if(is_null($exception)) {
+                return true;
+            } else {
+                throw new Exception;
+            }
+
+        }
+        catch(Exception $e) {
+            return false;
+        }
+
 
 
         // return redirect('/');
