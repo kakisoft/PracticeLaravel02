@@ -28,6 +28,10 @@ Route::delete('/posts/{post}', 'PostsController@destroy');
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 Route::delete('/posts/{post}/comments/{comment}', 'CommentsController@destroy');
 
+// sample
+Route::get('/comments/transaction_sample_01', 'CommentsController@transaction_sample_01');
+Route::get('/comments/transaction_sample_02', 'CommentsController@transaction_sample_02');
+
 
 //==========< Auto Generated >==========
 Auth::routes();
