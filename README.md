@@ -69,6 +69,7 @@ php artisan migrate:rollback
 ```
 php artisan make:model Models/Post -m
 php artisan make:model Models/Comment -m
+php artisan make:model Models/Item -m
 php artisan make:model Models/Question01RegistrationInformation -m
 （編集）
 php artisan migrate
