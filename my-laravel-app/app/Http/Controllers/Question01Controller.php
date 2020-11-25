@@ -10,6 +10,18 @@ use Exception;
 class Question01Controller extends Controller
 {
     /**
+     * callAction コントローラがコールされる時、自動で呼び出されるメソッド
+     */
+    public function callAction($method, $parameters)
+    {
+// dump($method); //=> 「index」「winners」といった、コントロールのメソッド名
+// dump($parameters);
+
+        // 親クラスの callAction をコール
+        return parent::callAction($method, $parameters);
+    }
+
+    /**
      *
      */
     public function index(Request $request) {
