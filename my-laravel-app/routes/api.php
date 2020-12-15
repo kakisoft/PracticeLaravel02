@@ -63,4 +63,6 @@ Route::group(['namespace' => 'API'], function () {
 Route::group(['namespace' => 'API'], function () {
     // curl http://localhost:8000/api/sample01/
     Route::get('sample01/', 'SampleAPI01Controller@index');
+    // curl http://localhost:8000/api/sample02/
+    Route::get('sample02/', 'SampleAPI01Controller@sampleMethod');
 });
