@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Question01RegistrationInformation;
+use App\Models\Post;
 
 class SampleAPI01Controller extends Controller
 {
@@ -40,8 +41,9 @@ dump($data['id']);
      *
      */
     public function sampleMethod(Request $request) {
-        $this->method01($request);
-        $this->method02($request);
+        // $this->method01($request);
+        // $this->method02($request);
+        $this->method03($request);
 
         return;
     }
@@ -78,5 +80,18 @@ dump($data['id']);
 
         $data['body'] = null;
         return response($data['body'], Response::HTTP_OK);
+    }
+
+
+    /**
+     *
+     *
+     */
+    public function method03($request) {
+
+        // $posts = Post::find(1)->comments();
+
+// dd($posts->get()->toArray());
+
     }
 }
