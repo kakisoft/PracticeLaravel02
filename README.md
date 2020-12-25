@@ -93,9 +93,9 @@ php artisan make:request Question01RegistrationInformationRequest
 
 ## Controller 追加
 ```
-php artisan make:controller PostsController
-php artisan make:controller CommentsController
-
+// Laravelベストプラクティスに沿うなら、単数形。
+php artisan make:controller PostController
+php artisan make:controller CommentController
 
 // web コントローラ
 php artisan make:controller Question01Controller

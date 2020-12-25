@@ -49,3 +49,7 @@ Route::get('/question01/challenge_users/save/', function () {
 Route::get('/question01/challenge_users/token/{token}', 'Question01Controller@inputClearedUserInfomation');
 
 
+
+//==========< sample >==========
+Route::get('/sample01', 'WebSample01Controller@index');
+
