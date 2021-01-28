@@ -66,6 +66,7 @@ php artisan migrate:rollback
 
 
 ## Model追加
+※Model 名なので、単数で指定！
 ```
 php artisan make:model Models/Post -m
 php artisan make:model Models/Comment -m
